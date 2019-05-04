@@ -1,0 +1,22 @@
+# flex复习
+
+1. 容器的属性
+    - flex-direction
+      - 决定主轴的方向(row,row-reverse,c)
+    - flex-wrap
+      - 决定是否换行(nowrap,wrap,wrap-reverse)
+    - flex-flow
+      - flex-direction和flex-grow的简写
+    - justify-content
+      - 决定主轴上的富裕空间的排列方式(flex-start,flex-end,center,)
+    - align-items
+      - 决定侧轴富裕空间的排列方式()
+    - align-content(flex-wrap不为nowrap时才生效)
+      - 决定多行侧轴的富裕空间的排列方式(会覆盖align-items)
+2. 项目的属性
+    - order
+    - flex-grow
+    - flex-shrink
+    - flex-basis
+    - flex
+    - align-self

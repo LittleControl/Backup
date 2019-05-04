@@ -1,0 +1,12 @@
+package com.littlecontrol.top;
+
+public class Test {
+	public static void main(String[] args) {
+		int a=10;
+		int b=10;
+		method(a,b);//要求在method方法调用之后，仅打印出a=100,b=200，请写出method方法的代码
+		System.out.println("a="+a);
+		System.out.println("b="+b);
+	}
+}
+//method方法代码编写处

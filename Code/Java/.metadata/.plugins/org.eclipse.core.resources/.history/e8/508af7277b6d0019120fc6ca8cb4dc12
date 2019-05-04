@@ -1,0 +1,16 @@
+package com.littlecontrol.top;
+
+public class Test5 {
+	public static void main(String[] args) {
+		Test5 t1=new Test5();
+		System.out.println(t1.Fac(1));
+	}
+//递归求阶乘
+	public int Fac(int n) {
+		if(n==1) {
+			return n;
+		}else {
+			return n*Fac(n-1);
+		}
+	}
+}
