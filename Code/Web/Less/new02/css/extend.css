@@ -1,0 +1,25 @@
+/*
+    继承与混合
+        继承的类不能有参数，也不能带有空括号啥的
+        继承的性能好，可是没有混合灵活
+*/
+.justify,
+#wrap .inner {
+  margin: 0 auto;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#wrap {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+#wrap .inner {
+  width: 100px;
+  height: 100px;
+  background-color: deeppink;
+}

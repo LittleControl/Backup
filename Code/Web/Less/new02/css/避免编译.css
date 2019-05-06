@@ -1,0 +1,14 @@
+/*
+    使用~""来使双引号里的内容来避免编译
+
+
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+#wrap {
+  width: cacl(100+200px);
+  height: cacl(100+200px);
+  background-color: deeppink;
+}
