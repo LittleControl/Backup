@@ -1,0 +1,28 @@
+.base(@w:200px,@h:200px,@c:pink){
+    width: @w;
+    height: @h;
+    background-color: @c;
+}
+.inner(){
+    border-style: solid;
+    border: 200px;
+    border-color: lightblue red lightblue lightyellow;
+}
+.inner(@_){
+    border-style: solid;
+    border: 700px;
+    border-color: lightblue red pink lightyellow;
+}
+/*好像如果有像T这样的没有@符号的参数，就不能设定默认值了，或许设置一个空参数的inner可以解决此问题*/ 
+.inner(T,@bw,@color){
+    border: @bw;
+    border-style: solid;
+    border-color: @color lightblue red  lightyellow;
+}
+
+
+#wrap{
+    .base(@h:400px);
+    .inner;
+    // .inner(T,600px,red);
+}

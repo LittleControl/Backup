@@ -1,0 +1,9 @@
+/*好像如果有像T这样的没有@符号的参数，就不能设定默认值了，或许设置一个空参数的inner可以解决此问题*/
+#wrap {
+  width: 200px;
+  height: 400px;
+  background-color: pink;
+  border-style: solid;
+  border: 200px;
+  border-color: lightblue red lightblue lightyellow;
+}
