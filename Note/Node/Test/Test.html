@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 假定该文件名为Test.html -->
+    <!-- 基本替换变量用法 -->
+    <p>Name:{{name}}<p>
+    <!-- 变量为一个数组的情况 -->
+    <p>Hobbies:{{each hobbies}}{{$value}}{{/each}}<p>
+    <!-- 数组变量的元素为对象的情况 -->
+    {{each Girl}}<p>Name:{{$value.name}} Age:{{$value.age}}<p>{{/each}}
+</body>
+
+</html>
