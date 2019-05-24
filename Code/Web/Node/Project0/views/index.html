@@ -87,6 +87,8 @@
                     <strong class="d-block text-gray-dark">@{{$value.name}}</strong>
                     {{$value.message}}
                 </p>
+                <a href="/update/{{$value.id}}"><button type="button" class="btn btn-outline-warning">修改</button></a>
+                <a href="/delete/{{$value.id}}"><button type="button" class="btn btn-outline-danger">删除</button></a>
             </div>
             {{/each}}
             <small class="d-block text-right mt-3">

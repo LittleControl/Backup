@@ -1,7 +1,20 @@
-var st=require('./studnets')
-st.find(function(err,data){
-    if(err){
-        res.status(500).send("Server Error !")
+var obj={
+    name:"LittleControl",
+    age:18
+}
+console.log(obj)
+console.log(JSON.stringify(obj))
+var arr=[
+    {
+        name:"LittleControl",
+        age:18
+    },
+    {
+        name:"李晓控股",
+        age:"19"
     }
-    console.log(JSON.parse(data).commits)    
-});
+]
+console.log(arr)
+console.log({
+    arr:JSON.stringify(arr)
+})
