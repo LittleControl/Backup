@@ -1,20 +1,15 @@
-var obj={
-    name:"LittleControl",
-    age:18
-}
-console.log(obj)
-console.log(JSON.stringify(obj))
-var arr=[
-    {
-        name:"LittleControl",
-        age:18
-    },
-    {
-        name:"李晓控股",
-        age:"19"
-    }
-]
-console.log(arr)
-console.log({
-    arr:JSON.stringify(arr)
-})
+var fs=require('fs')
+var express=require('express')
+var app=express()
+var bodyParser=require('body-parser')
+app.engine('html',require('express-art-template'))
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
+app
+    .get('/index',function(req,res){
+        console.log(req.originalUrl)
+    })
+    .listen(3000,function(){
+        console.log('Servet is runnint at port 3000')
+    })
+    
