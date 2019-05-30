@@ -20,7 +20,7 @@ public class BankExer {
         Customer c1=new Customer(acc);
         Customer c2=new Customer(acc);
         Thread t1=new Thread(c1);
-        Thread t2=new Thread(c2);
+        Thread t2=new Thread(c1);
         t1.setName("AAA");
         t2.setName("BBB");
         t1.start();
