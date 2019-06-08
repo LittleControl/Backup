@@ -11,8 +11,8 @@ package top.littlecontrol;
 public class ComputeTest {
     public static void main(String[] args) {
         Compute c1 = new Compute();
-        String s1 = "123";
-        String s2 = "123456123";
+        String s1 = "0123";
+        String s2 = "0123450120120123";
         System.out.println(c1.myCompute(s2, s1));
         System.out.println(c1.myCompute(s1, s2));
     }
@@ -28,14 +28,14 @@ class Compute {
         }
         int count = 0;
         int tag1 = 0;
-        while (str2.length() - tag1-1 != str1.length()) {
+        while (str2.length() - tag1 >= str1.length()) {
             for (int i = 0; i < str1.length(); i++) {
-                if (str1.charAt(i) != str2.charAt(tag1+i)) {
-                    tag1 += (i+1);
+                if (str1.charAt(i) != str2.charAt(tag1 + i)) {
+                    tag1 += (i + 1);
                     break;
                 }
                 if (i == str1.length() - 1) {
-                    tag1 += i;
+                    tag1 += (i+1);
                     count++;
                 }
             }
