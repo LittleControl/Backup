@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        $('p').attr()
+        传入一个参数时,获得该属性节点的值,注意,无论选择器选中了多少个元素,最终只是返回第一个元素的属性节点值
+        传入两个参数时,修改该属性节点的值,如果没有则增加该属性节点,若选择器选中了多个节点,则会修改宣布选中的值
+
+        $('p').removeAttr()
+        传入一个属性节点名字作为参数,删除该属性节点,若选中了多个节点,则会都被删除
+
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin-top: 20px;
+        }
+        p{
+            background-color: orange;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            $('p').attr('name','李小控')
+            console.log($('p').attr('email','littlecontrol@qq.com'))
+            $('p').removeAttr('name email')
+        })
+    </script>
+</head>
+
+<body>
+    <p>p1</p>
+    <p>p2</p>
+    <div name="box1">box1</div>
+    <div name="box2">box2</div>
+    <script>
+        /* 原生写法 */
+        var div = document.getElementsByTagName('div');
+        // console.log(div)
+        var div1 = div[0];
+        var div2 = div[1];
+        div1.setAttribute('name','LittleControl')
+        div2.setAttribute('name','www.littlecontrol.top')
+        div2.setAttribute('email','littlecontrol@qq.com')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+    /* trim */
+    var str = '    Nothing    '
+    console.log('---'+str+'---')
+    var no = $.trim(str)
+    console.log('---'+no+'---')
+    /* 
+        isWindow
+        isArray
+        isFunction
+    */
+    var arr = []
+    var win = window
+    var fn = function(){}
+    console.log('#############')
+    console.log($.isWindow(arr))
+    console.log($.isWindow(win))
+    console.log($.isWindow(fn))
+    console.log('###################')
+    console.log($.isArray(arr))
+    console.log($.isArray(win))
+    console.log($.isArray(fn))
+    console.log('$$$$$$$$$$$$$$$$')
+    console.log($.isFunction(arr))
+    console.log($.isFunction(win))
+    console.log($.isFunction(fn))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

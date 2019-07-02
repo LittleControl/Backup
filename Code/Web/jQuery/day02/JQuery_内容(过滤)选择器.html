@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        内容选择(过滤)器
+        :empty 选择没有子元素或文本元素的节点
+        :parent 非empty的元素
+        :contains(text) 选择包含text文本的节点
+        :has(Ele) 选择包含Ele元素的节点
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 100px;
+            background-color: #bfa;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            $div = $('div:empty')
+            console.log($div)
+            $div2 = $('div:parent')
+            console.log($div2)
+            $div3 = $('div:contains("div")')
+            console.log($div3)
+            $div4 = $('div:has("p")')
+            console.log($div4)
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div>I'm a div</div>
+    <div>I'm a div123</div>
+    <div><span></span></div>
+    <div><p></p></div>
+</body>
+</html>
