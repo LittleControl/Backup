@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        # JQuery操控和修改css样式
+
+        ## 逐个修改
+
+        div.css('width', '100px')
+        div.css('height', '100px')
+        div.css('backgroundColor', 'orange')
+
+        ## 链式修改
+
+        div.css('width','100px').css('height','100px').css('background','#bfa')
+
+        ## 批量修改(一般都使用此方式)
+
+        div.css({
+                width:'100px',
+                height:'200px',
+                backgroundColor:'skyblue'
+            })
+        注意,背景颜色使用'background-color'或者'backgroundColor'都可以
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var div = $('div')
+            // div.css('width', '100px')
+            // div.css('height', '100px')
+            // div.css('backgroundColor', 'orange')
+            // div.css('width','100px').css('height','100px').css('background','#bfa')
+            div.css({
+                width:'100px',
+                height:'200px',
+                backgroundColor:'skyblue'
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

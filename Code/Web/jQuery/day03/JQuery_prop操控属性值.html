@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        使用prop方法可以获得和操控节点的属性值和属性节点值,用法和attr类似
+        使用removeProp方法可以删除节点的属性或属性节点,用法同removeAttr
+        对于属性节点,由于prop和attr都可以操控属性节点,一般我们对于属性节点的值为true或false的时候,使用prop,其他情况一般都使用attr
+        checked selected fosused
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var uncheck = $('.uncheck')
+            var checked = $('.checked')
+            console.log(uncheck.attr('checked'))
+            console.log(uncheck.prop('checked'))
+            console.log(checked.attr('checked'))
+            console.log(checked.prop('checked'))
+        })
+    </script>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <input type="checkbox" class="uncheck">
+    <input type="checkbox" class="checked" checked>
+</body>
+</html>

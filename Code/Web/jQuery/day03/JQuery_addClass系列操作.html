@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        addClass 增加一个类,若该类已经存在则不会重复添加,若要一次增加多个类,类名之间以空格隔开
+        removeClass 删除一个类,若该类已经不存在则不会重复删除,若要一次删除多个类,类名之间以空格隔开
+        toggleClass 增加或删除一个类,若类已经存在,则删除,不存在则增加,若要一次toggle多个类,类名之间以空格隔开
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .color{
+            background-color: orange;
+        }
+        .width{
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+        .border{
+            border: 2px red solid;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var btn1 = $('button:contains("大小")')[0]
+            var btn2 = $('button:contains("颜色")')[0]
+            var btn3 = $('button:contains("边框")')[0]
+            console.log(btn1,btn2,btn3)
+            var div = $('div')
+            btn1.onclick = function(){
+                div.addClass('width')
+            }
+            btn2.onclick = function(){
+                div.addClass('color')
+            }
+            btn3.onclick = function(){
+                div.toggleClass('color border')
+            }
+        })
+    </script>
+</head>
+<body>
+    <button>增加大小</button>
+    <button>增加颜色</button>
+    <button>增加边框</button>
+    <div></div>
+    <div></div>
+</body>
+</html>

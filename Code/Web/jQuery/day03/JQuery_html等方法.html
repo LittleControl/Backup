@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        一个参数就是获取,两个参数就是修改或添加
+        html
+        text
+        val
+
+
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var div = $('div')
+            var input = $('input')
+            var btns = document.getElementsByTagName('button')
+            btns[0].onclick = function(){
+                alert(div.html())
+            }
+            btns[1].onclick = function(){
+                div.html("<p>I'm a P<span>I'm a Span</span></p>")
+            }
+            btns[2].onclick = function(){
+                alert(div.text())
+            }
+            btns[3].onclick = function(){
+                div.text("<p>I'm a P<span>I'm a Span</span></p>")
+            }
+            btns[4].onclick = function(){
+                alert(input.val())
+            }
+            btns[5].onclick = function(){
+                input.val("<p>I'm a P<span>I'm a Span</span></p>")
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <button>获取html</button>
+    <button>添加HTML</button>
+    <button>获取text</button>
+    <button>添加text</button>
+    <button>获取value</button>
+    <button>添加value</button>
+    <div></div>
+    <input type="text">
+</body>
+</html>

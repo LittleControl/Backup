@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        一般都使用第一个,减小代码量,如果JS的原生方法而JQuery没有封装时,则只能使用on方法来进行绑定
+        ojb.event(fn())
+        obj.on(event,fn())
+        这两个方法都可以添加多个事件,同名不同名都可以,不会覆盖
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var btn = $('button')
+            btn.click(function(){
+                alert('Nothing')
+            })
+            btn.mouseenter(function(){
+                alert('COOL!')
+            })
+            btn.click(function(){
+                alert('So?')
+            })
+            btn.mouseleave(function(){
+                alert('Good Bye!')
+            })
+            var test = $('.test')
+            test.on('click',function(){
+                alert('www.littlecontrol.top')
+            })
+            test.on('mouseenter',function(){
+                alert('Weclome to')
+            })
+            test.on('click',function(){
+                alert('Enjoy it!')
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>Click Me!</button>
+    <button class="test">Also</button>
+</body>
+</html>

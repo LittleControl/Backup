@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        off()
+        空参数时,默认解绑所有的绑定事件
+        传入一个参数时,解绑所有的指定事件
+        传入两个参数时,解绑指定事件的指定函数(注意这个只能用于事件不是匿名函数的事件) 
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            function fn1(){
+                alert('Nothing')
+            }
+            function fn2(){
+                alert('COOL')
+            }
+            function fn3(){
+                alert('So?')
+            }
+            function fn4(){
+                alert('Good Bye')
+            }
+            var btn = $('button')
+            btn.click(fn1)
+            btn.mouseenter(fn2)
+            btn.click(fn3)
+            btn.mouseleave(fn4)
+            // btn.off();
+            // btn.off('click')
+            btn.off('click',fn3)
+        })
+    </script>
+</head>
+<body>
+    <button>Click Me!</button>
+</body>
+</html>

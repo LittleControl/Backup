@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        width       only content,no including padding or border
+        innerWidth  content+padding,no including border
+        height      the same as abort
+        innerHeight the same as abort
+
+        offset      相对于整个文档的偏移量,可读(无参数)可修改(一个对象)
+        position    相对于其定位元素的位置,可读不可改.但是可以通过css方法修改
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            margin-left: 50px;
+            background-color: brown;
+            border: 20px red solid;
+            padding: 20px;
+        }
+        .box2{
+            /* position: absolute; */
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var box1 = $('.box1')
+            box1.width('200px')
+            console.log(box1.width())
+            console.log(box1.innerWidth())
+            box1.innerWidth('200px')
+            console.log(box1.width())
+            console.log(box1.innerWidth())
+            var box2 = $('.box2')
+            /* offset方法传参的话必须传入一个对象 */
+            box2.offset({
+                left:200
+            })
+            console.log(box2.offset())
+            console.log(box2.position())
+            
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
