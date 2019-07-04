@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        可以在事件名称后加''.标示',这样在多个同名事件之间就会有识别符
+        注意,这个也只能通过on来添加
+        如果使用trigger调用了带有命名空间的子元素的事件,那么事件冒泡也只会相应相同命名空间的父元素的事件
+        如果使用trigger调用的不带命名空间的事件,则会相应子元素的全部相应事件,以及冒泡到父元素的全部事件
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+        }
+        .inner{
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var inner = $('.inner')
+            var a = $('a')
+            var input = $('input')
+            wrap.on('click.0',function(){
+                alert('Wrap_Click_0')
+            })
+            wrap.on('click.1',function(){
+                alert('Wrap_Click_1')
+            })
+            inner.on('click.0',function(){
+                alert('Inner_Click_0')
+            })
+            inner.on('click.1',function(){
+                alert('Inner_Click_1')
+            })
+            // inner.trigger('click.0')
+            inner.trigger('click')
+            a.click(function(event){
+                alert("I'm a tag")
+            })
+            var span = $('span')
+            span.click(function(){
+                alert('I am a span tag')
+            })
+            input.click(function(){
+                alert('I am input')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+    </div>
+    <a href="/Test_a"><span>Test</span></a>
+    <form action="/Test_form">
+        <input type="submit">Submit
+    </form>
+</body>
+</html>

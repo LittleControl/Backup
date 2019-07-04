@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        事件冒泡
+            当给子元素添加类似click事件时,同时也会触发父元素的click事件
+            取消事件冒泡的两种方式
+                - 子元素的事件 return false
+                - 子元素的事件传入一个event参数,调用 event.stopPropagation()方法
+        默认行为
+            类似a标签,默认行为就是点击之后会跳转到指定的url
+            如何取消默认行为
+                - return false
+                - 传入event参数,调用event.preventDefalue()方法
+
+
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+        }
+        .inner{
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var inner = $('.inner')
+            var a = $('a')
+            var input = $(input)
+            wrap.click(function(){
+                alert('Wrap')
+            })
+            inner.click(function(event){
+                alert('Inner')
+                // return false;
+                event.stopPropagation();
+            })
+            a.click(function(event){
+                alert("I'm a tag")
+                // return false
+                event.preventDefault()
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+    </div>
+    <a href="/Test_a">Test</a>
+    <form action="/Test_form">
+        <input type="submit">Submit
+    </form>
+</body>
+</html>

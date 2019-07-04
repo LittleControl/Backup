@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            border: 2px red solid;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var btn = $('button')
+            var ul = $('ul')
+            btn.click(function () {
+                ul.html(ul.html() + "<li>I'm a new li</li>")
+            })
+            ul.delegate('li', 'click', function () {
+                alert($(this).html())
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>I'm a li</li>
+        <li>I'm a li</li>
+        <li>I'm a li</li>
+        <li>I'm a li</li>
+    </ul>
+    <button>Add</button>
+</body>
+
+</html>

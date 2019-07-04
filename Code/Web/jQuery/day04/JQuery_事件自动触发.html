@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        事件自动触发
+        - trigger('event')  同时也会触发事件冒泡和默认事件
+        - triggerHandler('event')   不会触发事件冒泡和默认事件
+
+        特殊例子 a 标签
+        使用trigger不会触发a标签的默认事件,可以在a标签里内嵌一个span元素,让span元素自动触发,然后冒泡到a标签上
+        而且这样使用的跳转,浏览器似乎无法返回上一界面,也就是在a标签跳转的那个地址是新开的,不能返回
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+        }
+        .inner{
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var inner = $('.inner')
+            var a = $('a')
+            var input = $('input')
+            wrap.click(function(){
+                alert('Wrap')
+            })
+            wrap.click(function(){
+                alert('Wrap_click')
+            })
+            inner.click(function(event){
+                alert('Inner')
+            })
+            inner.click(function(){
+                alert('Inner_click2')
+            })
+            // inner.trigger('click')
+            // inner.triggerHandler('click')
+            a.click(function(event){
+                alert("I'm a tag")
+            })
+            // a.trigger('click')
+            var span = $('span')
+            span.click(function(){
+                alert('I am a span tag')
+            })
+            // span.trigger('click')
+            input.click(function(){
+                alert('I am input')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+    </div>
+    <a href="/Test_a"><span>Test</span></a>
+    <form action="/Test_form">
+        <input type="submit">Submit
+    </form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        自定义事件,就是相当于在页面加载时调用一个函数,起码现在我是这么理解的
+        自定义事件的构成
+            使用on添加自定义事件
+            调用trigger触发自定义事件
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+        }
+        .inner{
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var inner = $('.inner')
+            var a = $('a')
+            var input = $('input')
+            wrap.click(function(){
+                alert('Wrap')
+            })
+            wrap.click(function(){
+                alert('Wrap_click')
+            })
+            inner.click(function(event){
+                alert('Inner')
+            })
+            inner.click(function(){
+                alert('Inner_click2')
+            })
+            a.click(function(event){
+                alert("I'm a tag")
+            })
+            var span = $('span')
+            span.click(function(){
+                alert('I am a span tag')
+            })
+            input.click(function(){
+                alert('I am input')
+            })
+            var div = $('div')
+            div.on('MyEvent',function(){
+                alert('MyEvent!')
+            })
+            div.trigger('MyEvent')
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+    </div>
+    <a href="/Test_a"><span>Test</span></a>
+    <form action="/Test_form">
+        <input type="submit">Submit
+    </form>
+</body>
+</html>
