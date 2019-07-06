@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        clone
+        浅拷贝(不拷贝事件等)
+        深拷贝(拷贝事件等绑定方法)
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var wrap = $('.wrap')
+            var btns = $('button')
+            $('.inner').click(function(){
+                alert($(this).html())
+            })
+            btns.eq(0).click(function(){
+                var $div = $('.inner:first').clone()
+                wrap.after($div)
+            })
+            btns.eq(1).click(function(){
+                var $div = $('.inner:first').clone(true)
+                wrap.after($div)
+            })
+            btns.eq(2).click(function(){
+            })
+            btns.eq(3).click(function(){
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <hr>
+        <div class="inner">innner1</div>
+        <div class="inner">innner2</div>
+        <div class="inner">innner3</div>
+        <div class="inner">innner4</div>
+        <hr>
+    </div>
+    <button>lightCopy</button>
+    <button>deepCopy</button>
+    <button>Nothing</button>
+</body>
+
+</html>

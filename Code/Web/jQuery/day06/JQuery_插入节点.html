@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        内部插入
+            append/appendTo 在指定元素的内部末尾添加节点
+            prepend/prependTo 在指定元素的头部添加节点
+        外部插入
+            after/inserrAfter 在指定元素外部的后面插入节点
+            before/insertBefore 在指定元素外部的前面插入节点
+
+
+        注意:
+            如果只定义了一个节点而进行多个操作时,之前插入的节点会被清除    
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var wrap = $('.wrap')
+            var $div = $("<div>I'm a div</div>")
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                // wrap.append($div)
+                $div.appendTo(wrap)
+            })
+            btns.eq(1).click(function(){
+                // wrap.prepend($div)
+                $div.prependTo(wrap)
+            })
+            btns.eq(2).click(function(){
+                // wrap.after($div)
+                $div.insertAfter(wrap)
+            })
+            btns.eq(3).click(function(){
+                // wrap.before($div)
+                $div.insertBefore(wrap)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <hr>
+        <div class="inner">innner1</div>
+        <div class="inner">innner2</div>
+        <div class="inner">innner3</div>
+        <div class="inner">innner4</div>
+        <hr>
+    </div>
+    <button>append插入</button>
+    <button>prepend插入</button>
+    <button>after插入</button>
+    <button>before插入</button>
+</body>
+
+</html>

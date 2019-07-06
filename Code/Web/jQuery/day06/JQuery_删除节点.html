@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        remove
+        empty
+        detach 
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var wrap = $('.wrap')
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                $('.inner:first').remove()
+            })
+            btns.eq(1).click(function(){
+                wrap.empty()
+            })
+            btns.eq(2).click(function(){
+                wrap.detach()
+            })
+            btns.eq(3).click(function(){
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <hr>
+        <div class="inner">innner1</div>
+        <div class="inner">innner2</div>
+        <div class="inner">innner3</div>
+        <div class="inner">innner4</div>
+        <hr>
+    </div>
+    <button>remove</button>
+    <button>empty</button>
+    <button>detach</button>
+</body>
+
+</html>
