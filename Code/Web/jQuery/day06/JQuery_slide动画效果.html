@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrap {
+            background-color: yellow;
+            width: 400px;
+            height: 400px;
+            /* display: none; */
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var wrap = $('.wrap')
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                wrap.slideDown(1000)
+            })
+            btns.eq(1).click(function(){
+                wrap.slideUp(1000)
+            })
+            btns.eq(2).click(function(){
+                wrap.slideToggle(1000)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>展开</button>
+    <button>关闭</button>
+    <button>切换</button>
+    <div class="wrap">
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

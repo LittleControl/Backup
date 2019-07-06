@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 400px;
+            height: 400px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            wrap.animate({
+                /* 当需要在原有属性的基础上操作时,使用+= */
+                width:'+=200',
+                /* 注意这里宽度和高度的单位,要么是字符串,要么是数字,不用加单位 */
+                height:200,
+                /* 属性带有-,一律使用小驼峰命名法 */
+                backgroundColor:'red'
+            },1000,function(){
+                alert('Finished')
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap"></div>
+</body>
+</html>

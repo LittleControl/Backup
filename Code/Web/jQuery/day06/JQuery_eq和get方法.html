@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        对于使用JQuery核心函数选中的元素不止一个,可以通过eq和get方法来进行个性化操作
+            eq(index) 返回一个JQuery对象
+            get(index) 返回一个DOM对象
+        类选择器
+            nth-child(-n+3):选中前三个子元素
+        JQuery.siblings() 获得JQuery的兄弟元素
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <style>
+        .inner:nth-child(-n+3) {
+            background-color: green;
+        }
+    </style>
+    <script>
+        $(function () {
+            var inner = $('.inner')
+            console.log(inner.eq(0))
+            console.log(inner.eq(1))
+            console.log(inner.get(2))
+            console.log(inner.get(3))
+            var inner2 = $('.inner2')
+            // inner2.siblings().css('background-color','red')?
+            // $().siblings('.inner2').css('background-color','blue')
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner2">4</div>
+        <div class="inner">5</div>
+        <div class="inner">6</div>
+    </div>
+
+</body>
+
+</html>

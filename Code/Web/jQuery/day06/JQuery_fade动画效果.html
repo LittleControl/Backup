@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrap {
+            background-color: yellow;
+            width: 400px;
+            height: 400px;
+            /* display: none; */
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            var wrap = $('.wrap')
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                wrap.fadeIn(1000)
+            })
+            btns.eq(1).click(function(){
+                wrap.fadeOut(1000)
+            })
+            btns.eq(2).click(function(){
+                wrap.fadeToggle(1000)
+            })
+            /* 切换透明度,将元素变换到指定透明度 */
+            btns.eq(3).click(function(){
+                
+                wrap.fadeTo(1000,.5)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button>淡入</button>
+    <button>淡出</button>
+    <button>切换</button>
+    <button>FadeTo</button>
+    <div class="wrap">
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

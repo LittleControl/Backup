@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        关于JQuery的链式调用
+            wrap.hide(1000).show(1000)
+            等价于
+            wrap.hide(1000)
+            wrap.show(1000)
+        关于stop的参数问题
+            stop(clearQueue?: boolean, jumpToEnd?: boolean): JQuery
+            A Boolean indicating whether to remove queued animation as well. Defaults to false.    
+            默认参数都是false
+            第一个参数 是否清除队列,false时还会执行后面的动画,true时不会执行后面的动画
+            第二个参数 是否完成当前动画,false则停止当前动画(如果加载到一半则就停在一半的位置),true则直接执行完毕当前动画(没有过渡效果,直接到最终形态)
+
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrap{
+            width: 400px;
+            height: 400px;
+            background-color: lightpink;
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                wrap.hide(2000)
+                wrap.show(1000)
+                wrap.slideUp(1000)
+                wrap.slideDown(1000)
+            })
+            btns.eq(1).click(function(){
+                /* 空参时立即停止第一个动画(保留当前状态),然后执行第二个动画 */
+                wrap.stop()
+                // wrap.stop(false,false)
+                // wrap.stop(true,false)
+                // wrap.stop(false,true)
+                // wrap.stop(true,true)
+            })
+            btns.eq(2).click(function(){
+                wrap.slideDown(1000)
+                wrap.delay(2000)
+                wrap.fadeOut(1000)
+            })
+            btns.eq(3).click(function(){
+                wrap.show(2000)
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>Start</button>
+    <button>Stop</button>
+    <button>Delay</button>
+    <button>Resume</button>
+    <div class="wrap"></div>
+</body>
+</html>

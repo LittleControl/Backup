@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        mouseover(移入) 和 mouseout(移出) 事件,子元素的移入移出事件也会触发父元素的移入移出事件
+        mouseenter  和 mouseleave 事件,子元素的移入移出事件不会触发父元素的移入移出事件
+            注意:如果第一次之间进入子元素,则依然会触发父元素的事件
+        hover
+            两个参数(移入事件,移出事件)    
+            一个参数(移入移除事件)(即两个事件都会触发同一个函数)
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap{
+            background-color: orange;
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        .inner{
+            background-color: yellowgreen;
+            width: 150px;
+            height: 150px;
+        }
+        .test{
+            position: absolute;
+            left: 600px;
+            top: 500px;
+            width: 200px;
+            height: 200px;
+            border: 3px red solid;
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var wrap = $('.wrap')
+            var inner = $('.inner')
+            /* mouseover 和 mouseover 事件 */
+            // wrap.mouseover(function(){
+            //     alert('wrap mouseover')
+            // })
+            // wrap.mouseout(function(){
+            //     alert('wrap mouseout')
+            // })
+            // inner.mouseover(function(){
+            //     alert('inner mouseover')
+            // })
+            // inner.mouseout(function(){
+            //     alert('inner mouseout')
+            // })
+            /* mouseenter 和 mouseleve事件 */
+            // wrap.mouseenter(function(){
+            //     alert('wrap mouseenter')
+            // })
+            // wrap.mouseleave(function(){
+            //     alert('wrap mouseenter')
+            // })
+            // inner.mouseenter(function(){
+            //     alert('inner mouseenter')
+            // })
+            // inner.mouseleave(function(){
+            //     alert('inner mouseleave')
+            // })
+            /* hover事件 enter和Leave的结合体 */
+            // wrap.hover(function(){
+            //     alert('wrap mouseenter')
+            // },function(){
+            //     alert('wrap mouseleave')
+            // })
+            // inner.hover(function(){
+            //     alert('inner mouseenter')
+            // },function(){
+            //     alert('inner mouseleave')
+            // })
+            /* hover事件 单个参数 */
+            wrap.hover(function(){
+                alert('Nothing!')
+            })
+            inner.hover(function(){
+                alert('Okay')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+        <div class="test"></div>
+    </div>
+</body>
+</html>

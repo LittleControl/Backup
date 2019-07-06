@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .wrap {
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+            display: none;
+        }
+
+        .wrap2 {
+            background-color: #bfa;
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            // var wrap = $('.wrap')
+            // wrap.show(1000, function () {
+            //     // alert('Animation Finshed')
+            //     var wrap2 = $('.wrap2')
+            //     // console.log(wrap2)
+            //     wrap2.hide(1000, function () {
+            //         alert('Hide Finished')
+            //     })
+            // })
+            var wrap = $('.wrap')
+            var btns = $('button')
+            btns.eq(0).click(function(){
+                wrap.show(1000)
+            })
+            btns.eq(1).click(function(){
+                wrap.hide(1000)
+            })
+            btns.eq(2).click(function(){
+                wrap.toggle(1000)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <div class="wrap2"> </div>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+</body>
+
+</html>
