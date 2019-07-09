@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            width: 400px;
+            height: 600px;
+            margin: 300px auto;
+        }
+
+        ul>li {
+            border: 1px solid red;
+        }
+
+        div {
+            background-color: #bfa;
+            display: none;
+        }
+    </style>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function () {
+            $('li:nth-of-type(-n+3)').css('background-color', 'orange')
+            $('li').hover(function () {
+                $(this).children().slideDown(500)
+                // console.log($(this))
+                // console.log($(this).children())
+                // var div = $('li>div')
+                // div.slideDown(500)
+            }, function () {
+                $(this).children().slideUp(500)
+                // var div = $('li>div')
+                // div.slideUp(500)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个li
+            <div>我是第1个div</div>
+        </li>
+        <li>我是第2个li
+            <div>我是第2个div</div>
+        </li>
+        <li>我是第3个li
+            <div>我是第3个div</div>
+        </li>
+        <li>我是第4个li
+            <div>我是第4个div</div>
+        </li>
+        <li>我是第5个li
+            <div>我是第5个div</div>
+        </li>
+    </ul>
+</body>
+
+</html>

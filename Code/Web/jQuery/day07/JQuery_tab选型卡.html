@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        目前还存在的问题是如何在鼠标移入空白区域时保留上一次移入选项卡的状态
+        应该还是我的元素结构不合理,所以导致了这种问题
+        容我再想想吧
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            height: 30px;
+            /* background-color: #bfa; */
+            list-style: none;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul>li{
+            width: 16.3%;
+            float:left;
+            text-align: center;
+            border: 1px solid red;
+            height: 88%;
+        }
+        div{
+            width: 800px;
+            height: 600px;
+            background-color: orange;
+            margin:auto;
+            display: none;
+        }
+        div:nth-of-type(1){
+            display:block;
+        }
+    </style>
+    <title>Document</title>
+    <script src="../public/js/jQuery.js"></script>
+    <script>
+        $(function(){
+            var lis = $('li')
+            var divs = $('div')
+            for(let i = 0; i < lis.length; i++){
+                lis.eq(i).hover(function(){
+                    console.log($(this))
+                    $(this).css('background-color','orange')
+                    divs.eq(i).css('display','block')
+                },function(){
+                    $(this).css('background-color','#bfa')
+                    divs.eq(i).css('display','none')
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>L</li>
+        <li>I</li>
+        <li>T</li>
+        <li>T</li>
+        <li>L</li>
+        <li>E</li>
+    </ul>
+    <div><img src="../public/img/1.jpg" width="800" height="600" ></div>
+    <div><img src="../public/img/2.jpg" width="800" height="600" ></div>
+    <div><img src="../public/img/3.jpg" width="800" height="600" ></div>
+    <div><img src="../public/img/4.jpg" width="800" height="600" ></div>
+    <div><img src="../public/img/5.jpg" width="800" height="600" ></div>
+    <div><img src="../public/img/6.jpg" width="800" height="600" ></div>
+</body>
+</html>
