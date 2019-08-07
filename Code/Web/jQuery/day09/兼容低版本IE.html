@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+       window.onload = function(){
+           var btn = document.getElementsByTagName('button')[0]
+           btn.onclick = function(){
+               if(window.XMLHttpRequest){
+                   var xhr = new XMLHttpRequest()
+               } else {
+                   /* 低版本IE没有XMLHttpRequest对象,只能用这个 */
+                   var xhr = new ActiveXObject('Microsoft.XMLHTTP')
+               }
+               /* 解决IE不能解决的Ajax缓存问题 */
+               var time = new Date().getTime()
+               xhr.open('get','Ajax.txt'+'?t='+time)
+               xhr.send()
+               xhr.onreadystatechange = function(){
+                   if(xhr.readyState === 4){
+                       if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+                           alert(xhr.responseText)
+                       } else{
+                           alert("Nothing can be found!")
+                       }
+                   }
+               }
+           }
+       }
+    </script>
+</head>
+
+<body>
+    <button>提交</button>
+</body>
+
+</html>

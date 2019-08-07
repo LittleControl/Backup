@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function obj2Str(obj){
+        var time = new Date().getTime()
+        var str = []
+        for(var key in obj){
+            str.push(encodeURIComponent(key)+'='+encodeURIComponent(obj[key]))
+        }
+        var res = '?t='+time+'&'+str.join('&')
+        return res
+    }
+    function ajax(method, url,str, timeout, success, fail) {
+        if (window.XMLHttpRequest) {
+            var xhr = new XMLHttpRequest()
+        } else {
+            var xhr = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        str = obj2Str(str)
+        console.log(url+str)
+        xhr.open(method, url+str)
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                clearInterval(timer)
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                    success(xhr)
+                } else {
+                    fail(xhr)
+                }
+            }
+        }
+        var timer = setInterval(function () {
+            console.log('Request Canaled')
+            xhr.abort()
+            clearInterval(timer)
+        }, timeout)
+    }
+    window.onload = function () {
+        var btn = document.getElementById('btn')
+        console.log(btn)
+        btn.onclick = function () {
+            ajax('get', 'Ajax.php',{
+                'Name':'LittleControl',
+                'Website':'www.littlecontrol.top'
+            } ,3000, function (xhr) {
+                alert(xhr.responseText)
+            }, function (xhr) {
+                alert('Something is wrong!')
+            })
+        }
+    }
+</script>
+
+<body>
+    <button id="btn">Submit</button>
+</body>
+
+</html>
