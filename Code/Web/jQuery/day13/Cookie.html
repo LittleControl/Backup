@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./cookie.js"></script>
+<script>
+    window.onload = function () {
+        var page = !isNaN(findCookie('page')) || 1
+        var h1 = document.getElementsByTagName('h1')[0]
+        SwitchPage(h1,page)
+        var a1 = document.getElementsByClassName('test')[0]
+        var a2 = document.getElementsByClassName('test')[1]
+        var a3 = document.getElementsByClassName('test')[2]
+        // console.log(h1.innerHTML)
+        a1.onclick = function () {
+            SwitchPage(h1, 1)
+            addCookie({
+                key: 'page',
+                value: 1
+
+            })
+        }
+        a2.onclick = function () {
+            SwitchPage(h1, 2)
+            addCookie({
+                key: 'page',
+                value: 2
+
+            })
+        }
+        a3.onclick = function () {
+            SwitchPage(h1, 3)
+            addCookie({
+                key: 'page',
+                value: 3
+
+            })
+        }
+    }
+
+    function SwitchPage(ele, page) {
+        if (page == 1) {
+            ele.innerHTML = '厉害了,我的哥'
+        }
+        if (page == 2) {
+            ele.innerHTML = '完结撒花'
+        }
+        if (page == 3) {
+            ele.innerHTML = '我太难了!!!'
+        }
+    }
+</script>
+
+<body>
+    <h1></h1>
+    <button class="test">第一页</button>
+    <button class="test">第二页</button>
+    <button class="test">第三页</button>
+</body>
+
+</html>
