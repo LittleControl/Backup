@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function obj2Str(obj) {
+            var str = []
+            for (var key in obj){
+                str.push(encodeURIComponent(key)+'='+encodeURIComponent(obj[key]))
+            }
+            var time = (new Date()).getTime
+            var res = 't='+time+'&'+str.join('&')
+            return res
+        }
+        function ajax(method, url, args, timeout) {
+            var xhr = new XMLHttpRequest()
+            xhr.open(method, url)
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            args = obj2Str(args)
+            xhr.send(args)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    clearInterval(timer)
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        alert(xhr.responseText)
+                    } else {
+                        alert('Something is wrong !')
+                    }
+                }
+            }
+            var timer = setInterval(function(){
+                console.log('Sth is wrong')
+                xhr.abort()
+                clearInterval(timer)
+            },timeout)
+        }
+        window.onload = function () {
+            var btn = document.getElementById('btn')
+            btn.onclick = function () {
+                ajax('post','POST.php',{
+                    name:'LittleControl',
+                    website:'www.littlecontrol.top'
+                },3000)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">Test</button>
+</body>
+
+</html>

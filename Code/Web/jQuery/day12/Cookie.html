@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    /* Expires */
+    window.onload = function () {
+        // console.log(typeof document.cookie)
+        // delCookie('name')
+        console.log(findCookie('nothing'))
+        // addCookie({
+        //     key: 'nothing',
+        //     value: '44',
+        //     expires: new Date(new Date().getTime() * 1.5).toUTCString()
+        // })
+        // addCookie({
+        //     key:'name',
+        //     value:'Control',
+        //     expires: new Date(new Date().getTime()*1.5).toUTCString(),
+        //     domain:'127.0.0.1'
+        // })
+        // console.log(document.cookie)
+    }
+    /* key value expires path domain */
+    function addCookie(cookie) {
+        var date = new Date()
+        date.setDate(date.getDate() + 7)
+        cookie.expires = cookie.expires || date.toUTCString()
+        cookie.path = cookie.path || '/'
+        cookie.domain = cookie.domain || defaultDomain()
+        console.log(cookie)
+        document.cookie = cookie.key + '=' + cookie.value + ';expires=' + cookie.expires + ';path=' + cookie.path +
+            ';domain=' + cookie.domain + ';'
+    }
+
+    function findCookie(key) {
+        var cookie = document.cookie.split(';')  
+        for(let i = 0; i < cookie.length; i++){
+            temp = cookie[i].trim().split('=')
+            if(temp[0] == key){
+                break;
+            }
+            if(i == cookie.length-1 && temp[0] != key){
+                temp[1] = 'Nothing can be founded!'
+            }
+        }
+        return temp[1]
+    }
+
+    function delCookie(key,path) {
+        addCookie({
+            key: key,
+            path:path || '/',
+            expires: new Date(1)
+        })
+    }
+
+    function defaultDomain() {
+        domain = window.location.pathname
+        var tag = domain.indexOf('/')
+        domain = domain.slice(0, tag)
+        return domain
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
