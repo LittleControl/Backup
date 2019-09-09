@@ -3,7 +3,7 @@
     伪数组
     Map容器
     Set容器
-    arguments
+    arguments(伪数组)
 */
 
 let arr = [1, 2, ['a', 'b']]
