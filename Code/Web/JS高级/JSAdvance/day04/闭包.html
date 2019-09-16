@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- <script src="./闭包.js"></script> -->
+<script src="./MyModule.js"></script>
+<script src="./MyModule2.js"></script>
+<script>
+    var f = module1()
+    f.fn1()
+    f.fn2()
+    module2.fn3()
+    module2.fn4()
+    /* 
+        相对而言,第二种模块的定义方式更好一点,因为直接把模块挂载到window对象上,方便调用
+    */
+</script>
+
+</html>

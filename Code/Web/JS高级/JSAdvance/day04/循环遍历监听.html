@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="one">1.1</button>
+    <button class="one">1.2</button>
+    <button class="one">1.3</button><br>
+    <button class="two">2.1</button>
+    <button class="two">2.2</button>
+    <button class="two">2.3</button><br>
+    <button class="three">3.1</button>
+    <button class="three">3.2</button>
+    <button class="three">3.3</button><br>
+    <button class="four">4.1</button>
+    <button class="four">4.1</button>
+    <button class="four">4.1</button>
+</body>
+<script>
+    window.onload = function () {
+        var one = document.getElementsByClassName('one')
+        var two = document.getElementsByClassName('two')
+        var three = document.getElementsByClassName('three')
+        var four = document.getElementsByClassName('four')
+        for (var i = 0, length = one.length; i < length; i++) {
+            one[i].onclick = function () {
+                alert('one ' + (i + 1))
+            }
+        }
+        for (var i = 0, length = two.length; i < length; i++) {
+            two[i].index = i
+            two[i].onclick = function () {
+                alert('two ' + (this.index + 1))
+            }
+        }
+        for (var i = 0, length = three.length; i < length; i++) {
+            ; (function (index) {
+                three[index].onclick = function () {
+                    alert('three ' + (index + 1))
+                }
+            })(i)
+        }
+        for (let j = 0, length = four.length; j < length; j++) {
+            four[j].onclick = function () {
+                alert('four ' + (j + 1))
+            }
+        }
+    }
+</script>
+
+</html>
