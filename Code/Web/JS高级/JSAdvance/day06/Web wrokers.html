@@ -1,0 +1,50 @@
+<!-- 
+    Web Workers 是 HTML5 提供的一个JavaScript多线程解决方案
+    我们可以将一个大计算量的代码交给web worker运行而不冻结用户界面
+    但是子线程完全受主线程控制,且不得操作DOM
+    所以,这个新标准并没有改变JavaScript单线程的本质
+
+    还有需要注意的一点就是
+        对于Chrome和FireFox,不允许使用本地HTML文件使用worker
+        chrome会报错,而Firefox则不会提示
+        也就是说,必须在服务器的环境下使用Worker构造函数
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="num" placeholder="请输入大于0的整数"><br>
+    <button id="btn">想要结果</button>
+    <button id="test">input的数据类型</button>
+</body>
+<script>
+    let input = document.getElementById('num')
+    let btn = document.getElementById('btn')
+    let test = document.getElementById('test')
+    test.onclick = function () {
+        console.log(typeof input.value)
+    }
+    btn.onclick = function () {
+        let worker = new Worker('worker.js')
+        worker.onmessage = function (event) {
+            console.log('接受到消息了...')
+            alert(event.data)
+        }
+        let num = input.value
+        /* 妈的,原来这里num就是String类型的 */
+        // let num = 5
+        console.log(num)
+        console.log('start post message')
+        worker.postMessage(num)
+    }
+</script>
+
+</html>
