@@ -5,7 +5,7 @@
 let module1 = require('./modules/module1')
 //自定义模块不能省略'./'的相对路径标示
 // let module1 = require('modules/module1')
-let module2 = require('./modules/modules2')
+let module2 = require('./modules/module2')
 
 module1.getName()
 module2.getWebsite()
