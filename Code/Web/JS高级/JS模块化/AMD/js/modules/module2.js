@@ -1,9 +1,13 @@
 define([
-    'module1'
-], function(module1) {
+    'module1',
+    'module3'
+], function(module1,module3) {
     let website = 'www.littlecontrol.top'
     function getWebsite() {
         return module1.getName() + '  ' + website
     }
-    return {getWebsite}
+    function reColor() {
+        module3.jq('body').css('background-color', 'pink')
+    }
+    return {getWebsite, reColor}
 });
